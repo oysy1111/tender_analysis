@@ -51,7 +51,7 @@ def initialize_deepseek_chain(api_base: str, api_key: str, model: str):
     招标文件内容：
     {document}
     
-    请根据上述招标文件内容，提供以下信息的详细分析和总结，每个部分都需要具体信息，不能只写标题：
+    请根据上述招标文件内容，提供以下信息的详细分析和总结，每个部分都需要具体信息，具体信息需要参照原招标文件内容，越详细越好，不能只写标题：
     
     1. 项目基本信息
        - 项目名称：详细全称（例如：大唐江西抚州 2×1000MW 煤电扩建项目主体施工 - 一标段）
@@ -240,7 +240,8 @@ def main():
                     elapsed_time = time.time() - start_time
                     
                     # 显示结果
-                    st.success(f"分析完成，耗时: {elapsed_time:.2f} 秒")
+                    # st.success(f"分析完成，耗时: {elapsed_time:.2f} 秒")
+                    st.success(f"分析完成！")
                     st.markdown("## 📊 分析结果")
                     st.markdown(summary)
                     
