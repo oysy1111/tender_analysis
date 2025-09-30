@@ -176,19 +176,19 @@ def main():
     st.set_page_config(page_title="招标文件智能分析工具", layout="wide")
     
     st.title("📄 招标文件智能分析工具")
-    st.caption("上传招标文件，使用DeepSeek大模型进行智能分析和总结")
+    st.caption("上传招标文件，进行智能分析")
     
        # --- Sidebar: 提取选项 ---
-    with st.sidebar:
-        st.header("⚙️ 提取选项")
-        use_keyword_filter = st.checkbox("启用关键字筛选", value=False)
+    # with st.sidebar:
+    #     st.header("⚙️ 提取选项")
+    #     use_keyword_filter = st.checkbox("启用关键字筛选", value=False)
         
-        if use_keyword_filter:
-            keywords_input = st.text_area("输入关键字（每行一个）", 
-                                        "招标\n投标\n项目\n资格\n投标文件\n截止时间\n评标")
-            keywords_list = [kw.strip() for kw in keywords_input.split('\n') if kw.strip()]
-        else:
-            keywords_list = None
+    #     if use_keyword_filter:
+    #         keywords_input = st.text_area("输入关键字（每行一个）", 
+    #                                     "招标\n投标\n项目\n资格\n投标文件\n截止时间\n评标")
+    #         keywords_list = [kw.strip() for kw in keywords_input.split('\n') if kw.strip()]
+    #     else:
+    #         keywords_list = None
 
     # --- Main: 文件上传与分析 ---
     uploaded_file = st.file_uploader("上传招标文件", type=["docx"])
@@ -213,7 +213,7 @@ def main():
         # 初始化问答链
         try:
             qa_chain = initialize_deepseek_chain(api_base=API_BASE, api_key=API_KEY, model=MODEL)
-            st.success("模型连接成功")
+            # st.success("模型连接成功")
         except Exception as e:
             st.error(f"模型初始化失败: {e}")
             st.stop()
